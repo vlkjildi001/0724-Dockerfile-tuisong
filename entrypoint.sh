@@ -1,8 +1,8 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # 默认各参数值，请自行修改.(注意:伪装路径不需要 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
 PORT=${PORT:-'8080'}
-UUID=${UUID:-'0af36b10-97c4-477f-94e0-ffae4ce1d5d9'}
+UUID=${UUID:-'de04add9-5c68-8bab-950c-08cd5320df18'}
 WSPATH=${WSPATH:-'argo'}
 
 # 生成 Xray 配置文件
@@ -30,19 +30,19 @@ cat > config.json << EOF
                         "dest":3001
                     },
                     {
-                        "path":"/vless",
+                        "path":"/${WSPATH}-vless",
                         "dest":3002
                     },
                     {
-                        "path":"/vmess",
+                        "path":"/${WSPATH}-vmess",
                         "dest":3003
                     },
                     {
-                        "path":"/trojan",
+                        "path":"/${WSPATH}-trojan",
                         "dest":3004
                     },
                     {
-                        "path":"/shadowsocks",
+                        "path":"/${WSPATH}-shadowsocks",
                         "dest":3005
                     }
                 ]
@@ -86,7 +86,7 @@ cat > config.json << EOF
                 "network":"ws",
                 "security":"none",
                 "wsSettings":{
-                    "path":"/vless"
+                    "path":"/${WSPATH}-vless"
                 }
             },
             "sniffing":{
@@ -114,7 +114,7 @@ cat > config.json << EOF
             "streamSettings":{
                 "network":"ws",
                 "wsSettings":{
-                    "path":"/vmess"
+                    "path":"/${WSPATH}-vmess"
                 }
             },
             "sniffing":{
@@ -142,7 +142,7 @@ cat > config.json << EOF
                 "network":"ws",
                 "security":"none",
                 "wsSettings":{
-                    "path":"/trojan"
+                    "path":"/${WSPATH}-trojan"
                 }
             },
             "sniffing":{
@@ -171,7 +171,7 @@ cat > config.json << EOF
             "streamSettings":{
                 "network":"ws",
                 "wsSettings":{
-                    "path":"/shadowsocks"
+                    "path":"/${WSPATH}-shadowsocks"
                 }
             },
             "sniffing":{
